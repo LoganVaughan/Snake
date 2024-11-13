@@ -12,6 +12,15 @@
         <div id="score">0</div>
     </h1>
 
+    <div id="player-name" style="font-size: 18px; color: blue; margin-bottom: 10px;">
+        Player: 
+    </div>
+    
+    <div class="player-input">
+        <input type="text" id="name-input" placeholder="Enter your name">
+        <button id="submit-name">Set Name</button>
+    </div>
+
     <div class="controls">
         <button id="start">Start!</button>
     </div>
@@ -19,6 +28,9 @@
     <div class="game-board">
         <div class="snake"></div>
         <div class="apple"></div>
+    </div>
+    <div id="game-over" style="display: none; font-size: 24px; color: red; text-align: center;">
+        Game Over! You Died!
     </div>
 
     <script src="script.js"></script>

@@ -10,6 +10,19 @@ let snake = [
     { x: 200, y: 200 }, // Head
     { x: 180, y: 200 }  // Body segment
 ];
+//name input//
+const nameInput = document.getElementById('name-input');
+const submitNameButton = document.getElementById('submit-name');
+const playerNameDisplay = document.getElementById('player-name');
+
+//event listener for name//
+submitNameButton.addEventListener('click', () => {
+    const playerName = nameInput.value.trim();
+    if (playerName) {
+        playerNameDisplay.textContent = `Player: ${playerName}`;
+        nameInput.value = ''; // Clear the input field after setting the name
+    }
+});
 
 // Create apple element and set initial position
 const appleElement = document.querySelector('.apple');
@@ -29,7 +42,8 @@ function placeApple() {
 }
 
 function updateSnakePosition() {
-    if (endGame) return;
+    if (endGame) 
+    return;
 
     // Calculate new head position
     const newHead = {
@@ -72,9 +86,9 @@ function updateSnakePosition() {
     });
 
     // Check for wall collisions
-    if (newHead.x < 0 || newHead.x >= boardSize || newHead.y < 0 || newHead.y >= boardSize) {
-        console.log("Game Over!");
+    if (newHead.x < 0 || newHead.x >= boardSize || newHead.y < 0 || newHead.y >= boardSize) {;
         endGame = true;
+        document.getElementById('game-over').style.display = 'block';
         clearInterval(gameLoop); // Stop the game loop
     }
 }
@@ -91,6 +105,9 @@ const startGame = () => {
     document.getElementById('score').textContent = score; // Reset score display
     applePosition = getRandomApplePosition(); // Reset apple position
     placeApple();
+
+//clear message//
+document.getElementById('game-over').style.display = 'none';
 
     // Clear any existing snake segments and re-create the initial segments
     document.querySelectorAll('.snake').forEach(segment => segment.remove());
